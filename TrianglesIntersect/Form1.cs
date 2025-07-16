@@ -6,7 +6,9 @@ namespace TrianglesIntersect
     {
         bool isIntersect;
 
-        List<Vector2[]> triangles = TriangleStorage.IntersectTriangles;
+        const int xBound = 12, yBound = 8;
+
+        List<Vector2[]> triangles = TriangleStorage.GetRandomTriangles(xBound, yBound);
 
         public Form1()
         {
@@ -19,7 +21,7 @@ namespace TrianglesIntersect
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             var g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
 
             // Scale and offset parameters
             float scale = 50f;   // scales of each real pixel
@@ -47,7 +49,7 @@ namespace TrianglesIntersect
 
             const int margin = 5;
             using (var font = new Font(new FontFamily("Segoe UI"), 16))
-            using (var brush = Brushes.White)
+            using (var brush = new SolidBrush(Color.White))
             {
                 // calculate size of string
                 var textSize = g.MeasureString(displayText, font);
@@ -59,6 +61,13 @@ namespace TrianglesIntersect
                 // draw string
                 g.DrawString(displayText + (isIntersect ? "Yes" : "No"), font, brush, new PointF(x, y));
             }
+        }
+
+        private void nextTrianglesButton_Click(object sender, EventArgs e)
+        {
+            triangles = TriangleStorage.GetRandomTriangles(xBound, yBound);
+            isIntersect = Triangle2DSAT.TrianglesIntersect(triangles[0], triangles[1]);
+            pictureBox1.Invalidate();
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
+            nextTrianglesButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -42,11 +43,29 @@
             pictureBox1.TabStop = false;
             pictureBox1.Paint += pictureBox1_Paint;
             // 
+            // nextTrianglesButton
+            // 
+            nextTrianglesButton.BackColor = Color.Navy;
+            nextTrianglesButton.FlatAppearance.BorderSize = 0;
+            nextTrianglesButton.FlatStyle = FlatStyle.Flat;
+            nextTrianglesButton.Font = new Font("Segoe UI Semilight", 16F);
+            nextTrianglesButton.ForeColor = Color.FromArgb(192, 218, 255);
+            nextTrianglesButton.Location = new Point(0, 451);
+            nextTrianglesButton.Name = "nextTrianglesButton";
+            nextTrianglesButton.Size = new Size(644, 50);
+            nextTrianglesButton.TabIndex = 1;
+            nextTrianglesButton.Text = "Next Triangle Pair";
+            nextTrianglesButton.UseVisualStyleBackColor = false;
+            nextTrianglesButton.Click += nextTrianglesButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 450);
+            MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            ClientSize = new Size(644, 499);
+            Controls.Add(nextTrianglesButton);
             Controls.Add(pictureBox1);
             Name = "Form1";
             Text = "Form1";
@@ -57,5 +76,6 @@
         #endregion
 
         private PictureBox pictureBox1;
+        private Button nextTrianglesButton;
     }
 }
