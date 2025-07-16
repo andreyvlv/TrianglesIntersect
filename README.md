@@ -4,4 +4,4 @@ Display and detect intersection of two triangles in 2D space. The example is ins
 
 ## Example
 
-![Test Image 7](https://i.ibb.co/kgrjB3wT/2025-07-16-144124.png)
+![Example](https://i.ibb.co/tTvyMkqL/2025-07-16-183208.png)
