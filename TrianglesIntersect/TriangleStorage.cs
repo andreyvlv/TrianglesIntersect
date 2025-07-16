@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace TrianglesIntersect
 {
-    // Non intersect triangles, each triangle is Vector2[] {x, y}
+    
     public static class TriangleStorage
-    {       
+    {
+        // Non intersect triangles, each triangle is Vector2[] {x, y}
         public static List<Vector2[]> NonIntersectTriangles { get; } = new List<Vector2[]>
         {
             new[]
@@ -25,7 +26,8 @@ namespace TrianglesIntersect
                 new Vector2(5.0f, 6.0f)
             }
         };
-       
+
+        // Intersect triangles, each triangle is Vector2[] {x, y}
         public static List<Vector2[]> IntersectTriangles { get; } = new List<Vector2[]>
         {
             new[]
