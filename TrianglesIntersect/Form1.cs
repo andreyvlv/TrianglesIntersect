@@ -21,10 +21,10 @@ namespace TrianglesIntersect
             var g = e.Graphics;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            // Параметры масштабирования и смещения
-            float scale = 50f;   // сколько пикселей на единицу
-            float offsetX = 20f;   // отступ слева
-            float offsetY = 20f;   // отступ сверху
+            // Scale and offset parameters
+            float scale = 50f;   // scales of each real pixel
+            float offsetX = 20f;   // left offset
+            float offsetY = 20f;   // top offset
 
             foreach (var tri in triangles)
             {
@@ -39,24 +39,24 @@ namespace TrianglesIntersect
 
                 Pen pen = new Pen(Color.White, 2);
 
-                // Рисуем только контур
+                // only lines (contour)
                 g.DrawPolygon(pen, pts);
             }
 
             string displayText = "Triangles is intersect: ";
 
             const int margin = 5;
-            using (var font = new Font(new FontFamily("Segoe UI"), 16)) // можно заменить на любой другой шрифт
+            using (var font = new Font(new FontFamily("Segoe UI"), 16))
             using (var brush = Brushes.White)
             {
-                // Вычисляем размер текста
+                // calculate size of string
                 var textSize = g.MeasureString(displayText, font);
 
-                // Позиция: margin от левого края, margin от низа
+                // Position: x - margin from left, y - margin from bottom
                 float x = margin;
                 float y = pictureBox1.ClientSize.Height - textSize.Height - margin;
 
-                // Рисуем строку
+                // draw string
                 g.DrawString(displayText + (isIntersect ? "Yes" : "No"), font, brush, new PointF(x, y));
             }
         }
